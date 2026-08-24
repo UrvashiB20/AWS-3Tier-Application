@@ -16,9 +16,9 @@ This project demonstrates how a web application can be deployed manually
 on AWS using a secure three-tier architecture.
 
 The deployment was performed manually using AWS services and Linux
-configuration.
+configuration. The setup does not use DevOps tools (like Jenkins, Docker, or Kubernetes) and relies on AWS native services for hosting, networking, and storage.
 
-The application provides a simple transaction database demo. Users can:
+The application provides a simple transaction database demo where Users can:
 
 -   View transaction records
 -   Add a transaction with an amount and description

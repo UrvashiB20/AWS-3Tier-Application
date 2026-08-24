@@ -59,20 +59,24 @@ database remained private.
                     | t3.micro                    |
                     | Nginx                       |
                     | React production build      |
-                    | Node.js / Express :4000     |
+                    | Node.js                     |
                     +-------------+---------------+
-                                  |
-                    +-------------+-------------+
-                    |                           |
-                    v                           v
-             React Frontend              Node.js API
-                                               |
-                                               v
-                                      +----------------+
-                                      | RDS MySQL      |
-                                      | Private        |
-                                      | :3306          |
-                                      +----------------+
+                                  │
+                       ┌──────────┴──────────┐
+                       │                     │
+                       ▼                     ▼
+             ┌─────────────────┐    ┌─────────────────┐
+             │   RDS MySQL     │    │       S3        │
+             │ Private Subnet  │    │ Application Code│
+             └─────────────────┘    └─────────────────┘
+                      ▲                     ▲
+                      │                     │
+                      │              S3 VPC Endpoint
+                      │
+               Secrets Manager
+                      ▲
+                      │
+                IAM EC2 Role
 
 Supporting AWS services:
 
@@ -540,7 +544,7 @@ Private EC2
    ↓
 Nginx
    ↓
-React + Node.js/Express
+React + Node.js
    ↓
 Private RDS MySQL
 ```

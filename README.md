@@ -123,7 +123,6 @@ Private EC2
 
 -   React
 -   Node.js
--   Express
 -   Nginx
 -   MySQL
 
@@ -325,8 +324,7 @@ the displayed data.
 
 Amazon S3 is used to store application artifacts.
 
-The S3 bucket contains application-code objects for the application and
-web tiers.
+The Amazon S3 bucket stores the application code used for deployment to the EC2 application environment.
 
 The private EC2 instance accesses S3 through an S3 Gateway VPC Endpoint
 rather than requiring public access to S3.
@@ -478,9 +476,6 @@ aws-3tier-application/
 │       ├── package.json
 │       └── package-lock.json
 │
-├── architecture/
-│   └── architecture-diagram.png
-│
 ├── screenshots/
 │   ├── vpc/
 │   ├── networking/
@@ -565,3 +560,15 @@ Route Tables
 
 The application was deployed manually, tested end-to-end, and documented
 with AWS console screenshots.
+
+------------------------------------------------------------------------
+
+## 18. Conclusion
+
+This project successfully implemented and verified a secure three-tier web application architecture on AWS.
+
+The project covered VPC networking, public and private subnets, route tables, Internet Gateway, NAT Gateway, Application Load Balancer, Target Group, private EC2, Amazon RDS, Amazon S3, AWS Secrets Manager, IAM, S3 VPC Endpoint, Security Groups, and AWS Systems Manager Session Manager.
+
+The application was successfully accessed through the Application Load Balancer DNS name, while the EC2 application server and RDS database remained private. Application functionality and database connectivity were verified through end-to-end testing.
+
+The project provided practical experience in manually designing, deploying, securing, testing, and documenting an AWS three-tier application using AWS-native services.
